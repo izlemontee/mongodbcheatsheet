@@ -1,0 +1,4 @@
+-Turns out, you CAN create custom _id for documents
+    you just need to annotate it with @Id in the model class
+    don't directly insert JsonObjects into the database as it will get messy
+    to avoid confusion, if you're going to write custom ids, use _id
