@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+
+import com.mongodb.client.result.UpdateResult;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -126,6 +129,47 @@ public class TestRepo {
         for (Document d:results){
             System.out.println(d.toString());
         }
+    }
+
+    // inserts entries into mongodb
+    // you can do the same for batch inserts, just insert a collection instead of a document
+    public void addNewDocument(){
+        Demo demo = new Demo();
+        demo.setDescription("generated from java");
+        demo.setTitle("demo_title_new_insert");
+        Demo inserted = mongoTemplate.insert(demo,"democollection");
+        System.out.println(inserted.toString());
+    }
+
+    // findAndRemove only deletes one
+    // remove deletes all, no limits
+    public void deleteDocument(){
+
+        // db.democollection.deleteOne(
+        // {
+        //     title:"demo_title_new_insert"
+        // }
+        // )
+        Criteria criteria = Criteria.where("title").is("demo_title_new_insert");
+        Query query = Query.query(criteria).limit(1);
+        mongoTemplate.findAndRemove(query,Demo.class,"democollection");
+    }
+
+    public void updateDocument(){
+        // db.democollection.update(
+        // {
+        //     title:"demo_title"
+        // },
+        // {
+        //     $set:{title:"demo_title_updated"}
+        // }
+        // );
+        Criteria criteria = Criteria.where("title").is("demo_title");
+        Query query = Query.query(criteria);
+        Update updateOps = new Update();
+        updateOps.set("title","demo_title_updated");
+        UpdateResult updateResult = mongoTemplate.updateFirst(query, updateOps, Document.class,"democollection");
+        System.out.println(updateResult.getModifiedCount());
     }
     
 }

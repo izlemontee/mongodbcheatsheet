@@ -32,7 +32,10 @@ public class MongodbcheatsheetApplication implements CommandLineRunner{
 
 		//testRepo.getDocumentById();
 		//testRepo.getDocumentsByRegex();
-		testRepo.getDocumentByComparison();
+		//testRepo.getDocumentByComparison();
+		//testRepo.addNewDocument();
+		//testRepo.deleteDocument();
+		//testRepo.updateDocument();
 	}
 
 }

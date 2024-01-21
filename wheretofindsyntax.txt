@@ -9,3 +9,13 @@ DAY 26- INTRO TO MONGODB
 - Sorting results: slide 54
 - Projections (including/exlcluding columns): slide 56
 
+DAY 27- UPDATE,DELETE, insert
+- Insert: slide 3
+- Delete: slide 5
+- Update: slide 9-11
+- UpsertL slide 13
+- Index: slide 14
+- Text searches: slide 19-22
+- Arrays, embedded docs: slide 28
+- More on updates: slide 29-31
+
