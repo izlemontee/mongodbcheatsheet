@@ -24,11 +24,15 @@ public class MongodbcheatsheetApplication implements CommandLineRunner{
 	public void run(String... args){
 		// get the entire collection
 		//testRepo.addDocument();
-		List<Document> result = testRepo.test();
-		for(Document d: result){
-			System.out.println("_id: " + d.get("_id") + ", class: " + (d.get("_id")).getClass());
-			//System.out.println(d.toString());
-		}
+		// List<Document> result = testRepo.test();
+		// for(Document d: result){
+		// 	System.out.println("_id: " + d.get("_id") + ", class: " + (d.get("_id")).getClass());
+		// 	//System.out.println(d.toString());
+		// }
+
+		//testRepo.getDocumentById();
+		//testRepo.getDocumentsByRegex();
+		testRepo.getDocumentByComparison();
 	}
 
 }

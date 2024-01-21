@@ -1,0 +1,11 @@
+DAY 26- INTRO TO MONGODB
+- Just a normal find: slide 35
+- Finding with regex: slide 37
+- Finding with objectId(class) : slide 40
+- Finding with logical operators (e.g less than, more than): slide 44
+- Finding with matches in an array of criteria: slide 46, slide 48
+- Finding distinct and count: slide 50
+- Finding documents, implementing pagination: slide 52
+- Sorting results: slide 54
+- Projections (including/exlcluding columns): slide 56
+

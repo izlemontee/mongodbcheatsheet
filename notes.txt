@@ -2,3 +2,13 @@
     you just need to annotate it with @Id in the model class
     don't directly insert JsonObjects into the database as it will get messy
     to avoid confusion, if you're going to write custom ids, use _id
+
+for query to retrieve data,
+1. Set your criteria, using the Criteria class (read the functions available to you)
+2. Instantiate your query, either by Query query = new Query(); or Query query = Query.query(criteria)
+3. Send your query using mongoTemplate.find(quey, Document.class, "collectionname");
+
+Special cases
+- use .and to add on more conditions for criteria parameters
+- use .with with the query AFTER adding the criteria for pagination (e.g for limit or skip)
+- use include and exclude respsectively for getting specific columns
