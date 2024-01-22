@@ -12,3 +12,30 @@ Special cases
 - use .and to add on more conditions for criteria parameters
 - use .with with the query AFTER adding the criteria for pagination (e.g for limit or skip)
 - use include and exclude respsectively for getting specific columns
+
+Update, Delete, and Insert 
+- Almost exactly the same as retrieving
+1. Set criteria, using Criteria class
+2. Instantiate query with the criteria
+3. mongoTemplate update, insert, or delete, use the query, and select the collection
+
+AGGREGATION
+A typical pipeline:
+Match > Project > Group > Sort > Out 
+
+How to aggregate on java:
+1. Write your aggregation operations (MatchOperation, ProjectOperation, GroupOperation, SortOperation,OutOperation)
+    these can be found in the Aggregation library
+    https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/aggregation/Aggregation.html
+2. Create your pipeline
+    Aggregation pipeline = Aggregation.newAggregation(operations... )
+3. get the results
+    AggregationResults<Document> results = mongoTemplate.aggregate(pipeline, "collection", Document.class)
+4. Read the results
+    List<Document> docs = results.getMappedResults();  
+
+Using buckets for aggregation is similar. Just use Aggregate.bucket
+
+Referencing multiple collections requires LookupOperation
+e.g LookupOperation lookupOperation = Aggregation.lookup("comments", "title_id", "_id", "reviews);
+from left to right: the collection to join, the foreign field, the local field, the alias for the column

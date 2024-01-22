@@ -19,3 +19,12 @@ DAY 27- UPDATE,DELETE, insert
 - Arrays, embedded docs: slide 28
 - More on updates: slide 29-31
 
+DAY 28- AGGREGATION
+- Filtering documents: slide 7-9
+- Filtering and projecting documents: slide 10-11
+- Grouping: slide 13-15
+- Projection: slide 17-22
+- Using projections and native queries (e.g directly typign the query): slide 23
+- Unwinding: 25-27
+- Buckets: slide 29-34
+- Referencing and relationships: slide 36-39
